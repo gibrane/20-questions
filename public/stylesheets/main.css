@@ -274,12 +274,11 @@ textarea {
 }
 
 body {
-	background: #212121;
+	background: white;
 }
 
 #heading {
 	text-align: center;
-	color: white;
 	text-transform: uppercase;
 	font-family: "Gloria Hallelujah";
 	font-size: 4em;
@@ -288,7 +287,6 @@ body {
 
 #heading-intro {
 	text-align: center;
-	color: white;
 	font-family: Roboto;
 	font-size: 2em;
 	margin-bottom: 100px;
@@ -305,6 +303,25 @@ body {
 .hidden {
 	display: none;
 }
+
+#signin-button {
+	margin: 0 auto;
+	display: block;
+	border-radius: 10px;
+	font-size: 1.5em;
+}
+
+#save-username-button {
+	margin: 0 auto;
+	display: block;
+}
+
+#save-username-div {
+	margin: 0 auto;
+	display: block;
+}
+
+#username-input {}
 
 @media screen and (max-width: 480px) {
 	#heading {
