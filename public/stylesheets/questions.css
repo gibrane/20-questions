@@ -1,0 +1,40 @@
+html,
+body,
+div {
+    background-color: #FFFFFF;
+}
+
+#questions-players {
+    float: left;
+    width: 33%;
+}
+
+#ask-chat {
+    float: right;
+    width: 66%;
+    height: 100px;
+}
+
+#ask-input {
+    width: 100%;
+}
+
+#chat-input {
+    width: 90%;
+}
+
+.demo-list-icon {
+    width: 300px;
+}
+
+.answer {
+    float: right;
+}
+
+.wrong {
+    color: #FF0000 !important;
+}
+
+.right {
+    color: #169E04 !important;
+}
