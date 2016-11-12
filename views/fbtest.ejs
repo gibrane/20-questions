@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        <%= title %>
+    </title>
+    <link rel="stylesheet" href="stylesheets/normalize.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.2.1/material.indigo-pink.min.css">
+    <link rel="stylesheet" href="stylesheets/main.css"> </head>
+
+<body>
+    <h1><%= title %></h1>
+    <p>Welcome to3
+        <%= title %>
+    </p>
+    <button id="signin" onclick="signIn">Sign in</button>
+    <script src="https://www.gstatic.com/firebasejs/3.6.0/firebase.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js">
+    </script>
+    <script src="https://code.getmdl.io/1.2.1/material.min.js"></script>
+    <script>
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyBtUSHUtx1KZcq7GOjGsDuQOBl8LM6aeow"
+            , authDomain: "questions-codeday.firebaseapp.com"
+            , databaseURL: "https://questions-codeday.firebaseio.com"
+            , storageBucket: "questions-codeday.appspot.com"
+            , messagingSenderId: "576910719703"
+        };
+        firebase.initializeApp(config);
+        init();
+    </script>
+    <script src="javascript/plugins.js"></script>
+    <script src="javascript/index.js"></script>
+    <script src="javascript/main.js"></script>
+</body>
+
+</html>
