@@ -35,14 +35,14 @@ function saveUsername() {
             username: $('#username').val()
         }).then(function () {
             console.log("saved");
-            $('#username,#save-username').hide();
+            $('#main-save-username-div').hide();
         });
     }
 }
 //1. finish request username
 //2. use save-username button and save username to firebase using firebase.database().ref('users/' + userId).update({ object here}) 
 function reqUsername() {
-    $('#username,#save-username').show();
+    $('#main-save-username-div').show();
 }
 
 function checkUsername(userId) {
@@ -102,5 +102,6 @@ function createRoom() {
             members: [firebase.auth().currentUser.uid]
         })
         var joinUrl = "https://codeday-20-questions.herokuapp.com/room/" + newRoom.key;
+        console.log(joinUrl);
     }
 }
