@@ -306,6 +306,13 @@ body {
 	display: none;
 }
 
+#signin-button {
+	margin: 0 auto;
+	display: block;
+	border-radius: 10px;
+	font-size: 1.5em;
+}
+
 @media screen and (max-width: 480px) {
 	#heading {
 		font-size: 3em;
