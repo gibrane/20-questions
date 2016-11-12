@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    $('#create-room').on('click', createRoom);
+    $('#create-room-button').on('click', createRoom);
     init();
 });
 // Initialize Firebase
@@ -99,7 +99,8 @@ function createRoom() {
         var db = firebase.database().ref('/rooms')
             , newRoom = db.push()
         newRoom.set({
-            members: [firebase.auth().currentUser.uid];
+            members: [firebase.auth().currentUser.uid]
         })
+        var joinUrl = "https://codeday-20-questions.herokuapp.com/room/" + newRoom.key;
     }
 }
