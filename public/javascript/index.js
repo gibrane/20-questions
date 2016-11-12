@@ -35,14 +35,15 @@ function saveUsername() {
             username: $('#username').val()
         }).then(function () {
             console.log("saved");
-            $('#main-save-username-div').hide();
+            $('#main-save-username-div').addClass("hidden");
         });
     }
 }
 //1. finish request username
 //2. use save-username button and save username to firebase using firebase.database().ref('users/' + userId).update({ object here}) 
 function reqUsername() {
-    $('#main-save-username-div').show();
+    $('#main-save-username-div').removeClass("hidden");
+    $('#main-signin-div').addClass("hidden");
 }
 
 function checkUsername(userId) {
