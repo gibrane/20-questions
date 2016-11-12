@@ -2,25 +2,44 @@
 <html>
 
 <head>
-    <title>
-        <%= title %>
-    </title>
-    <link rel="stylesheet" href="stylesheets/normalize.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link rel="stylesheet" href="https://code.getmdl.io/1.2.1/material.indigo-pink.min.css">
-    <script defer src="https://code.getmdl.io/1.2.1/material.min.js"></script>
-		<link rel="stylesheet" href="stylesheets/main.css">
+	<title>
+		<%= title %>
+	</title>
+	<link rel="stylesheet" href="stylesheets/normalize.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	<link rel="stylesheet" href="https://code.getmdl.io/1.2.1/material.indigo-pink.min.css">
+	<script defer src="https://code.getmdl.io/1.2.1/material.min.js"></script>
+	<link href="https://fonts.googleapis.com/css?family=Gloria+Hallelujah|Roboto" rel="stylesheet">
+	<link rel="stylesheet" href="stylesheets/main.css">
 </head>
 
 <body>
-    <h1><%= title %></h1>
-    <p>Welcome to
-        <%= title %>
-    </p>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <script src="javascript/plugins.js"></script>
-    <script src="javascript/index.js"></script>
-		<script src="javascript/main.js"></script>
+	<h1 id="heading"><%= title %></h1>
+	<p id="heading-intro">Welcome to
+		<%= title %>
+	</p>
+	<div class="content-grid mdl-grid">
+		<div class="mdl-cell mdl-cell--6-col mdl-cell--4-col-tablet mdl-cell--4-col-phone" id="create-room">
+			<button id="create-room-button" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+				Create a Room
+			</button>
+		</div>
+		<div class="mdl-cell mdl-cell--6-col mdl-cell--4-col-tablet mdl-cell--4-col-phone" id='join-room'>
+			<button id="join-room-button" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+				Join a Room
+			</button>
+		</div>
+	</div>
+
+
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script src="javascript/vendor/modernizr-2.8.3.min.javascript"></script>
+	<script src="javascript/plugins.js"></script>
+	<script src="javascript/index.js"></script>
+	<script src="javascript/main.js"></script>
+
+
 </body>
 
 </html>
