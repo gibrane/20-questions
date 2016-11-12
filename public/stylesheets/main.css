@@ -282,7 +282,8 @@ body {
 	color: white;
 	text-transform: uppercase;
 	font-family: "Gloria Hallelujah";
-	font-size: 5em;
+	font-size: 4em;
+	word-wrap: break-word;
 }
 
 #heading-intro {
@@ -290,6 +291,7 @@ body {
 	color: white;
 	font-family: Roboto;
 	font-size: 2em;
+	margin-bottom: 100px;
 }
 
 #create-room-button,
@@ -302,4 +304,14 @@ body {
 
 .hidden {
 	display: none;
+}
+
+@media screen and (max-width: 480px) {
+	#heading {
+		font-size: 3em;
+	}
+	#heading-intro {
+		font-size: 2em;
+		margin-bottom: 50px;
+	}
 }
