@@ -16,14 +16,7 @@ function getCurrentUsername() {
 var windowHeight = $(window).height();
 $('#chat-ul').css("max-height", windowHeight - 175);
 $('#questions-tab').css("max-height", windowHeight - 80);
-$('#question-input').keydown(function (event) {
-	if (event.keyCode == 13) {
-		$("#questions-ul").append('<li class="mdl-list__item">' + $("#question-input").val() + '<span class="mdl-list__item-primary-content"></span> <i class="material-icons mdl-list__item-icon answer">help</i></li>');
-		$("#question-input").val('');
-		var div = $('#questions-tab');
-		div.scrollTop(div.prop("scrollHeight"));
-	}
-});
+
 
 function addPlayer(player) {
 	firebase.database().ref('usernames/' + player).once('value').then(function (snapshot) {
@@ -71,8 +64,49 @@ function writeChatData(message, sender) {
 //Adds data if current user types
 $('#chat-input').keydown(function (event) {
 	if (event.keyCode == 13) {
-		writeChatData($("#chat-input").val(), currentLoginUsername);
-		$("#chat-input").val('');
-		chatUL.scrollTop(chatUL.prop("scrollHeight"));
+		if ($('#chat-input').val() != "") {
+			writeChatData($('#chat-input').val(), currentLoginUsername);
+			$('#chat-input').val('');
+			chatUL.scrollTop(chatUL.prop("scrollHeight"));
+		}
+	}
+});
+
+
+
+
+//All Below edits question data
+
+var questionUL = $('#questions-ul');
+
+//Adds data to actual html
+function questionDataAddFunction(snapshot) {
+	questionUL.append('<li class="mdl-list__item">' + snapshot.question + '<span class="mdl-list__item-primary-content"></span> <i class="material-icons mdl-list__item-icon answer">' + snapshot.status + '</i></li>');
+}
+
+//Takes data from firebase and call function above
+var questionDataAdder = firebase.database().ref('questions/' + roomName);
+questionDataAdder.on('child_added', function (snapshot) {
+	questionDataAddFunction(snapshot.val());
+	$('#questions-tab').scrollTop($('#questions-tab').prop("scrollHeight"));
+});
+
+//Function called to write question data to firebase
+function writeQuestionData(message, sender) {
+	firebase.database().ref('questions/' + roomName).push({
+		question: question,
+		sender: sender,
+		status: status,
+		timestamp: firebase.database.ServerValue.TIMESTAMP
+	});
+}
+//Adds data if current user types
+questionUL.keydown(function (event) {
+	if (event.keyCode == 13) {
+		if ($("#question-input").val() != "") {
+			writeQuestionData($("#question-input").val(), currentLoginUsername);
+			$("#question-input").val('');
+			$('#questions-tab').scrollTop($('#questions-tab').prop("scrollHeight"));
+		}
 	}
 });
