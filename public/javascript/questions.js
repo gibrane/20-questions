@@ -92,7 +92,7 @@ questionDataAdder.on('child_added', function (snapshot) {
 });
 
 //Function called to write question data to firebase
-function writeQuestionData(message, sender) {
+function writeQuestionData(question, sender, status) {
 	firebase.database().ref('questions/' + roomName).push({
 		question: question,
 		sender: sender,
@@ -101,10 +101,10 @@ function writeQuestionData(message, sender) {
 	});
 }
 //Adds data if current user types
-questionUL.keydown(function (event) {
+$("#question-input").keydown(function (event) {
 	if (event.keyCode == 13) {
 		if ($("#question-input").val() != "") {
-			writeQuestionData($("#question-input").val(), currentLoginUsername);
+			writeQuestionData($("#question-input").val(), currentLoginUsername, 'help');
 			$("#question-input").val('');
 			$('#questions-tab').scrollTop($('#questions-tab').prop("scrollHeight"));
 		}
