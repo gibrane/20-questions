@@ -34,7 +34,7 @@ app.use(bodyParser.urlencoded({
 console.log("working");
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(requireHTTPS);
+//app.use(requireHTTPS);
 app.use('/', index);
 app.use('/questions', questions);
 //app.use('/fbtest', fbTest);
