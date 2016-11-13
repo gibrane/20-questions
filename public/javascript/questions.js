@@ -19,7 +19,7 @@ function getCurrentUsername() {
 }
 //Get window height for scrolling of chat box
 var windowHeight = $(window).height();
-$('#chat-ul').css("max-height", windowHeight - 175);
+$('#chat-ul').css("height", windowHeight - 175);
 $('#questions-tab').css("max-height", windowHeight - 80);
 /*console.log($('#chat-ul').length);
 if ($('#chat-ul').children().length === 0) {

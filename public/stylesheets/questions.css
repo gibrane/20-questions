@@ -127,6 +127,10 @@ button {
 	display: inline;
 }
 
+#main-body-div {
+	padding-top: 0;
+}
+
 
 /*
 @media (max-width: 700px) {
