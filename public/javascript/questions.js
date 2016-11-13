@@ -1,40 +1,21 @@
 var currentLoginUserObj;
 var currentLoginUsername;
+var currentLoginUsernameFull;
 firebase.auth().onAuthStateChanged(function (user) {
 	if (user) {
 		currentLoginUserObj = user;
+		currentLoginUsernameFull = user.uid;
 		getCurrentUsername();
-		addUserToMemberList();
 	}
 });
 
 function getCurrentUsername() {
 	firebase.database().ref('usernames/' + currentLoginUserObj.uid).once('value').then(function (snapshot) {
 		currentLoginUsername = snapshot.val().username;
+		currentLoginUsernameFull = currentLoginUserObj.uid;
+		addUserToMemberList();
 	});
 }
-
-
-function addUserToMemberList() {
-	console.log("called");
-	var userRef = firebase.database().ref("/rooms/members/" + currentLoginUserObj.uid);
-	userRef.on('value', function (snapshot) {
-		if (!snapshot.val()) {
-			console.log("setting");
-			userRef.set("ask");
-		} else {
-			console.log("not setting");
-		}
-		updateMembersList();
-	});
-}
-
-
-
-
-
-
-
 
 //Get window height for scrolling of chat box
 var windowHeight = $(window).height();
@@ -42,6 +23,61 @@ $('#chat-ul').css("max-height", windowHeight - 175);
 $('#questions-tab').css("max-height", windowHeight - 80);
 
 
+
+
+
+
+
+
+
+function addUserToMemberList() {
+	var userRef = firebase.database().ref("/rooms/" + roomName + "/members/" + currentLoginUsername);
+	userRef.once('value', function (snapshot) {
+		console.log(snapshot.val());
+		if (!snapshot.val()) {
+			userRef.set("ask");
+		}
+		//updateMembersList();
+	});
+}
+
+/*
+function updateMembersList() {
+	firebase.database().ref('rooms/' + roomName + "/members").once('value').then(function (snapshot) {
+		playersList = snapshot.val();
+	}).then(function () {
+		for (var player in playersList) {
+			addPlayer(player);
+		}
+	});
+}
+*/
+
+
+
+
+//Adds data to actual html
+function playerDataAddFunction(snapshot) {
+	if (snapshot.val() == "ask") {
+		console.log("You are in ask");
+		$("#players-ul").append('<li class="mdl-list__item"> <span class="mdl-list__item-primary-content"> <i class="material-icons mdl-list__item-icon">person</i>' + snapshot.key + '</span> </li>');
+	} else if (snapshot.val() == "answer") {
+		console.log("You are in answer");
+		$("#players-ul").prepend('<li class="mdl-list__item"> <span class="mdl-list__item-primary-content"> <i class="material-icons mdl-list__item-icon">star rate</i>' + snapshot.key + '</span> </li>');
+	}
+}
+
+
+var playerDataAdder = firebase.database().ref("/rooms/" + roomName + "/members");
+playerDataAdder.on('child_added', function (snapshot) {
+	playerDataAddFunction(snapshot);
+	//$('#questions-tab').scrollTop($('#questions-tab').prop("scrollHeight"));
+});
+
+
+
+/*
+var playersList;
 function addPlayer(player) {
 	firebase.database().ref('usernames/' + player).once('value').then(function (snapshot) {
 		var username = snapshot.val().username;
@@ -52,17 +88,15 @@ function addPlayer(player) {
 		}
 	})
 }
-var playersList;
+*/
 
-function updateMembersList() {
-	firebase.database().ref('rooms/' + roomName + "/members").once('value').then(function (snapshot) {
-		playersList = snapshot.val();
-	}).then(function () {
-		for (var player in playersList) {
-			addPlayer(player);
-		}
-	});
-}
+
+
+
+
+
+
+
 
 //All Below edits chat data
 
@@ -98,6 +132,11 @@ $('#chat-input').keydown(function (event) {
 		}
 	}
 });
+
+
+
+
+
 
 
 
