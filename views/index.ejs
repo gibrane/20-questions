@@ -18,6 +18,8 @@
 	<p id="heading-intro">Welcome to
 		<%= title %>
 	</p>
+
+	<!-- Choose to join or create room -->
 	<div class="content-grid mdl-grid hidden" id="main-buttons-div">
 		<div class="mdl-cell mdl-cell--6-col mdl-cell--4-col-tablet mdl-cell--4-col-phone" id="create-room-div">
 			<button id="create-room-button" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">Create a Room</button>
@@ -27,12 +29,17 @@
 		</div>
 	</div>
 
-	<div class="content-grid mdl-grid" id="main-signin-div">
+	<!-- Spinner Loader -->
+	<div id="spinner-div">
+		<div class="mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active" id="spinner"></div>
+	</div>
+
+	<!-- Log In Button -->
+	<div class="content-grid mdl-grid hidden" id="main-signin-div">
 		<div class="mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet mdl-cell--4-col-phone" id="signin-div">
 			<button id="signin-button" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" onclick="signIn()">Log In</button>
 		</div>
 	</div>
-
 
 	<!-- Enter username is user does not have one -->
 	<div id="main-save-username-div" class="hidden">
