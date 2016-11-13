@@ -78,7 +78,7 @@ function sendQuestionResponse(val) {
         break;
     }
     console.log(response);
-    var qId = $('#answer-question').attr("id");
+    var qId = $('.answer-question').attr("id");
     firebase.database().ref('/questions/free-way/' + questionsToAnswer[0].id).update({
         status: response
     }).then(function () {
@@ -102,6 +102,7 @@ function listenForQuestionsToAnswer() {
     })
 }
 firebase.database().ref('questions/' + roomName).on('child_changed', function (snapshot) {
+    console.log("li#" + snapshot.key + " > i");
     $("li#" + snapshot.key + " > i").text(snapshot.val().status);
     if (snapshot.val().status == "done") {
         $("li#" + snapshot.key + " > i").addClass("right");
