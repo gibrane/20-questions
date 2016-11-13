@@ -79,7 +79,7 @@ function sendQuestionResponse(val) {
     }
     console.log(response);
     var qId = $('.answer-question').attr("id");
-    firebase.database().ref('/questions/free-way/' + questionsToAnswer[0].id).update({
+    firebase.database().ref('/questions/' + roomName + "/" + questionsToAnswer[0].id).update({
         status: response
     }).then(function () {
         questionsToAnswer.splice(0, 1);
