@@ -25,8 +25,7 @@ $('#questions-tab').css("max-height", windowHeight - 80);
 if ($('#chat-ul').children().length === 0) {
     writeChatData("Welcome to 20 Questions. People will be able to join this room with the code: " + roomName + '.', "System");
 }*/
-alert("Welcome to 20 Questions. People will be able to join this room with the code: " + roomName + '.');
-
+//alert("Welcome to 20 Questions. People will be able to join this room with the code: " + roomName + '.');
 function addUserToMemberList() {
     var userRef = firebase.database().ref("/rooms/" + roomName + "/members/" + currentLoginUsername);
     userRef.once('value', function (snapshot) {
