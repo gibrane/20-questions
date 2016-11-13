@@ -6,6 +6,7 @@ firebase.auth().onAuthStateChanged(function (user) {
 		currentLoginUserObj = user;
 		currentLoginUsernameFull = user.uid;
 		getCurrentUsername();
+
 	}
 });
 
@@ -33,12 +34,15 @@ $('#questions-tab').css("max-height", windowHeight - 80);
 function addUserToMemberList() {
 	var userRef = firebase.database().ref("/rooms/" + roomName + "/members/" + currentLoginUsername);
 	userRef.once('value', function (snapshot) {
-		console.log(snapshot.val());
-		if (!snapshot.val()) {
-			userRef.set("ask");
-		}
+			console.log(snapshot.val());
+			if (snapshot.val() == "answer") {
+				$("#ask-tab").addClass("hidden");
+			} else if (!snapshot.val() || snapshot.val() == "ask") {
+				userRef.set("ask");
+				$("#answer-tab").addClass("hidden");
+			}
+		})
 		//updateMembersList();
-	});
 }
 
 /*
@@ -147,13 +151,14 @@ var questionUL = $('#questions-ul');
 
 //Adds data to actual html
 function questionDataAddFunction(snapshot) {
-	questionUL.append('<li class="mdl-list__item">' + snapshot.question + '<span class="mdl-list__item-primary-content"></span> <i class="material-icons mdl-list__item-icon answer">' + snapshot.status + '</i></li>');
+	questionUL.append('<li class="mdl-list__item" id="' + snapshot.key + '">' + snapshot.val().question + '<span class="mdl-list__item-primary-content"></span> <i class="material-icons mdl-list__item-icon answer">' + snapshot.val().status + '</i></li>')
+	$("#answer-question").empty().append(snapshot.question);
 }
 
 //Takes data from firebase and call function above
 var questionDataAdder = firebase.database().ref('questions/' + roomName);
 questionDataAdder.on('child_added', function (snapshot) {
-	questionDataAddFunction(snapshot.val());
+	questionDataAddFunction(snapshot);
 	$('#questions-tab').scrollTop($('#questions-tab').prop("scrollHeight"));
 });
 
