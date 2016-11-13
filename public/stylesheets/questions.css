@@ -1,60 +1,65 @@
 html,
 body,
 div {
-    background-color: #FFFFFF;
+	background-color: #FFFFFF;
 }
 
 #questions-players {
-    float: left;
-    width: 31%;
-    display: inline;
-    margin: 1%;
+	float: left;
+	width: 31%;
+	display: inline;
+	margin: 1%;
 }
 
 #questions,
 #players {
-    width: 100%;
+	width: 100%;
 }
 
 .message {
-    display: block;
+	display: block;
 }
 
 #chatbox {
-    width: 66%;
-    float: right;
-    display: block;
+	width: 66%;
+	float: right;
+	display: block;
 }
 
 #ask-chat {
-    float: right;
-    width: 66%;
-    height: 100px;
-    position: fixed;
-    bottom: 50px;
-    right: 0;
+	float: right;
+	width: 66%;
+	height: 100px;
+	position: fixed;
+	bottom: 50px;
+	right: 0;
 }
 
 #ask-input {
-    width: 95%;
+	width: 95%;
 }
 
 #chat-input {
-    width: 90%;
+	width: 90%;
 }
 
 .demo-list-icon {
-    width: 300px;
+	width: 300px;
 }
 
 .answer {
-    float: right;
+	float: right;
 }
 
 .wrong {
-    color: #FF0000 !important;
+	color: #FF0000 !important;
 }
 
 .right {
-    color: #169E04 !important;
+	color: #169E04 !important;
+}
+
+#chat-ul {
+	display: block;
+	margin-left: 5%;
 }
