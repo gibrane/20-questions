@@ -66,6 +66,7 @@ function showNextQuestion() {
 
 function sendQuestionResponse(val) {
     var response = "";
+    var gameFinished = false;
     switch (val) {
     case 0:
         response = "done";
@@ -74,7 +75,8 @@ function sendQuestionResponse(val) {
         response = "clear";
         break;
     case 2:
-        response = "solved";
+        response = "done";
+        gameFinished = true;
         break;
     }
     console.log(response);
@@ -84,7 +86,12 @@ function sendQuestionResponse(val) {
     }).then(function () {
         questionsToAnswer.splice(0, 1);
         console.log("new questionsToAnswer", questionsToAnswer);
-        showNextQuestion();
+        if (gameFinished) {
+            writeChatData("Congrats, you got it!", "System");
+        }
+        else {
+            showNextQuestion();
+        }
     })
 }
 var questionsToAnswer = [];
