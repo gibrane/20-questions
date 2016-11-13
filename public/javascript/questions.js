@@ -12,6 +12,25 @@ function getCurrentUsername() {
 		currentLoginUsername = snapshot.val().username;
 	});
 }
+
+
+
+var userRef = firebase.database().ref("/rooms/members/" + currentLoginObj.uid);
+userRef.on('value', function (snapshot) {
+	if (snapshot.val()) {
+		userRef.onDisconnect().remove();
+		userRef.set("true");
+	}
+});
+
+
+
+
+
+
+
+
+
 //Get window height for scrolling of chat box
 var windowHeight = $(window).height();
 $('#chat-ul').css("max-height", windowHeight - 175);
