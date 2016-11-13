@@ -1,6 +1,7 @@
 $(document).ready(function () {
     componentHandler.upgradeAllRegistered();
     $('#create-room-button').on('click', createRoom);
+    $('#join-room-button').on('click', askForRoom);
     init();
 });
 // Initialize Firebase
@@ -46,6 +47,11 @@ function saveUsername() {
             $('#main-buttons-div').removeClass("hidden");
         });
     }
+}
+
+function askForRoom() {
+    $('#main-buttons-div').addClass("hidden");
+    $('#enter-room-name-div').removeClass("hidden");
 }
 
 function reqUsername() {
@@ -104,6 +110,8 @@ function signIn() {
         console.log(errorCode, errorMessage, email, credential);
     });
 }
+
+function checkRoom() {}
 
 function finishCreateRoom(val) {
     console.log(val);
