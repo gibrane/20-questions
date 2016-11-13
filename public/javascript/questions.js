@@ -151,13 +151,14 @@ var questionUL = $('#questions-ul');
 
 //Adds data to actual html
 function questionDataAddFunction(snapshot) {
-	questionUL.append('<li class="mdl-list__item">' + snapshot.question + '<span class="mdl-list__item-primary-content"></span> <i class="material-icons mdl-list__item-icon answer">' + snapshot.status + '</i></li>');
+	questionUL.append('<li class="mdl-list__item" id="' + snapshot.key + '">' + snapshot.val().question + '<span class="mdl-list__item-primary-content"></span> <i class="material-icons mdl-list__item-icon answer">' + snapshot.val().status + '</i></li>')
+	$("#answer-question").empty().append(snapshot.question);
 }
 
 //Takes data from firebase and call function above
 var questionDataAdder = firebase.database().ref('questions/' + roomName);
 questionDataAdder.on('child_added', function (snapshot) {
-	questionDataAddFunction(snapshot.val());
+	questionDataAddFunction(snapshot);
 	$('#questions-tab').scrollTop($('#questions-tab').prop("scrollHeight"));
 });
 
