@@ -323,6 +323,12 @@ body {
 
 #username-input {}
 
+#spinner-div {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
 @media screen and (max-width: 480px) {
 	#heading {
 		font-size: 3em;
