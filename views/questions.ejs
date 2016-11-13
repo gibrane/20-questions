@@ -2,76 +2,82 @@
 <html>
 
 <head>
-	<title>
-		<%= title %>
-	</title>
-	<link rel="stylesheet" href="../stylesheets/normalize.css">
-	<link rel="stylesheet" href="../stylesheets/main.css">
-	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-	<link rel="stylesheet" href="https://code.getmdl.io/1.2.1/material.indigo-pink.min.css">
-	<link href="https://fonts.googleapis.com/css?family=Gloria+Hallelujah|Roboto" rel="stylesheet">
-	<link rel="stylesheet" href="../stylesheets/questions.css">
-	<script defer src="https://code.getmdl.io/1.2.1/material.min.js"></script>
+    <title>
+        <%= title %>
+    </title>
+    <link rel="stylesheet" href="../stylesheets/normalize.css">
+    <link rel="stylesheet" href="../stylesheets/main.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.2.1/material.indigo-pink.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Gloria+Hallelujah|Roboto" rel="stylesheet">
+    <link rel="stylesheet" href="../stylesheets/questions.css">
+    <script defer src="https://code.getmdl.io/1.2.1/material.min.js"></script>
 </head>
 
 <body>
-	<div id="chatbox">
-		<ul class="mdl-list__item" id="chat-ul">
-			<li class="mdl-list__item message"> <span class="mdl-list__item-primary-content">test</span></li>
-			<li class="mdl-list__item message"> <span class="mdl-list__item-primary-content">afsdgsdfg</span></li>
-			<li class="mdl-list__item message"> <span class="mdl-list__item-primary-content">gseryt</span></li>
-		</ul>
-	</div>
-	<div id="questions-players" class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
-		<div class="mdl-tabs__tab-bar"> <a href="#questions" class="mdl-tabs__tab is-active">Questions</a> <a href="#players" class="mdl-tabs__tab">Players</a> </div>
-		<div class="mdl-tabs__panel is-active" id="questions">
-			<ul id="questions-div" class="demo-list-icon mdl-list">
-				<li class="mdl-list__item"> <span class="mdl-list__item-primary-content">
+    <div id="chatbox">
+        <ul class="demo-list-item mdl-list">
+            <li class="mdl-list__item"> <span class="mdl-list__item-primary-content">
+      EvanIsPoop420: This is a message
+    </span> </li>
+            <li class="mdl-list__item"> <span class="mdl-list__item-primary-content">
+      guy302: This is another message
+    </span> </li>
+            <li class="mdl-list__item"> <span class="mdl-list__item-primary-content">
+      xXilove20questionsXx: This is a message that is a test
+    </span> </li>
+        </ul>
+    </div>
+    <div id="questions-players" class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
+        <div class="mdl-tabs__tab-bar"> <a href="#questions" class="mdl-tabs__tab is-active">Questions</a> <a href="#players" class="mdl-tabs__tab">Players</a> </div>
+        <div class="mdl-tabs__panel is-active" id="questions">
+            <ul id="questions-div" class="demo-list-icon mdl-list">
+                <li class="mdl-list__item"> <span class="mdl-list__item-primary-content">
             Is your person male?
             </span> <i class="material-icons mdl-list__item-icon answer right">done</i> </li>
-				<li class="mdl-list__item"> <span class="mdl-list__item-primary-content">
+                <li class="mdl-list__item"> <span class="mdl-list__item-primary-content">
             Does your person have blue eyes?
             </span> <i class="material-icons mdl-list__item-icon answer wrong">clear</i> </li>
-				<li class="mdl-list__item"> <span class="mdl-list__item-primary-content">
+                <li class="mdl-list__item"> <span class="mdl-list__item-primary-content">
             Is your person alive?
             </span> <i class="material-icons mdl-list__item-icon answer wrong">clear</i> </li>
-			</ul>
-		</div>
-		<div class="mdl-tabs__panel" id="players">
-			<ul class="demo-list-icon mdl-list">
-				<li class="mdl-list__item"> <span class="mdl-list__item-primary-content">
+            </ul>
+        </div>
+        <div class="mdl-tabs__panel" id="players">
+            <ul class="demo-list-icon mdl-list">
+                <li class="mdl-list__item"> <span class="mdl-list__item-primary-content">
             <i class="material-icons mdl-list__item-icon">star rate</i>
             EvanIsPoop420
         </span> </li>
-				<li class="mdl-list__item"> <span class="mdl-list__item-primary-content">
+                <li class="mdl-list__item"> <span class="mdl-list__item-primary-content">
             <i class="material-icons mdl-list__item-icon">person</i>
             guy302
             </span> </li>
-				<li class="mdl-list__item"> <span class="mdl-list__item-primary-content">
+                <li class="mdl-list__item"> <span class="mdl-list__item-primary-content">
             <i class="material-icons mdl-list__item-icon">person</i>
             xXilove20questionsXx
             </span> </li>
-			</ul>
-		</div>
-	</div>
-	<div id="ask-chat" class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
-		<div class="mdl-tabs__tab-bar"> <a href="#ask" class="mdl-tabs__tab is-active">Ask</a><a href="#chat" class="mdl-tabs__tab">Chat</a> </div>
-		<div class="mdl-tabs__panel is-active" id="ask">
-			<div class="mdl-textfield mdl-js-textfield" id="ask-input">
-				<input class="mdl-textfield__input" type="text" id="question-input">
-				<label class="mdl-textfield__label" for="question-input">Ask your question here!</label>
-			</div>
-		</div>
-		<div class="mdl-tabs__panel input" id="chat"> Chat:
-			<div class="mdl-textfield mdl-js-textfield" id="chat-input">
-				<input class="mdl-textfield__input" type="text" id="sample1">
-				<label class="mdl-textfield__label" for="sample1">Put your message here!</label>
-			</div>
-		</div>
-	</div>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-	<script src="../javascript/plugins.js"></script>
-	<script src="../javascript/main.js"></script>
+            </ul>
+        </div>
+    </div>
+    <div id="ask-chat" class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
+        <div class="mdl-tabs__tab-bar"> <a href="#ask" class="mdl-tabs__tab is-active">Ask</a><a href="#chat" class="mdl-tabs__tab">Chat</a> </div>
+        <div class="mdl-tabs__panel is-active" id="ask">
+            <div class="mdl-textfield mdl-js-textfield" id="ask-input">
+                <input class="mdl-textfield__input" type="text" id="question-input">
+                <label class="mdl-textfield__label" for="question-input">Ask your question here!</label>
+            </div>
+        </div>
+        <div class="mdl-tabs__panel input" id="chat"> Chat:
+            <div class="mdl-textfield mdl-js-textfield" id="chat-input">
+                <input class="mdl-textfield__input" type="text" id="sample1">
+                <label class="mdl-textfield__label" for="sample1">Put your message here!</label>
+            </div>
+        </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="../javascript/plugins.js"></script>
+    <script src="../javascript/main.js"></script>
 </body>
 
 </html>
