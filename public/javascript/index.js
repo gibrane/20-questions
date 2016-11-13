@@ -111,7 +111,24 @@ function signIn() {
     });
 }
 
-function checkRoom() {}
+function checkRoom() {
+    var roomName = $('#room-name-input').val();
+    if (roomName !== "") {
+        firebase.database().ref('/rooms/' + roomName).once('value').then(function (snapshot) {
+            console.log(1);
+            if (snapshot.val()) {
+                console.log(3);
+                $('#enter-room-div').removeClass("is-invalid");
+                var joinUrl = "https://codeday-20-questions.herokuapp.com/questions/" + roomName;
+                window.location.href = joinUrl;
+            }
+            else {
+                console.log(2);
+                $('#enter-room-div').addClass("is-invalid");
+            }
+        });
+    }
+}
 
 function finishCreateRoom(val) {
     console.log(val);
