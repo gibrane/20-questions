@@ -42,13 +42,13 @@
                     </div>
                 </div>
                 <div class="mdl-tabs__panel" id="answer">
-                    <h5 id="answer-question" class="headline">Answering: Is it blue?</h5>
-                    <div class="mdl-grid">
-                        <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-cell mdl-cell--3-col mdl-cell--bottom" id="answer-yes">Yes</button>
+                    <h5 class="answer-question headline">No questions right now</h5>
+                    <div class="mdl-grid hidden" id="answer-choices">
+                        <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-cell mdl-cell--3-col mdl-cell--bottom" id="answer-yes" onclick="sendQuestionResponse(0)">Yes</button>
                         <div class="mdl-layout-spacer mdl-cell--1-col"></div>
-                        <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect  mdl-cell mdl-cell--3-col mdl-cell--bottom" id="answer-no">No</button>
+                        <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect  mdl-cell mdl-cell--3-col mdl-cell--bottom" id="answer-no" onclick="sendQuestionResponse(1)">No</button>
                         <div class="mdl-layout-spacer mdl-cell--1-col"></div>
-                        <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect  mdl-cell mdl-cell--3-col mdl-cell--bottom" id="answer-finish">Correct</button>
+                        <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect  mdl-cell mdl-cell--3-col mdl-cell--bottom" id="answer-finish" onclick="sendQuestionResponse(2)">Correct</button>
                     </div>
                 </div>
                 <div class="mdl-tabs__panel input is-active" id="chat"> Chat:

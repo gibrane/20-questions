@@ -35,7 +35,7 @@ margin: 1%;
 }
 
 #chatbox {
-    min-height: 600px;
+    min-height: 500px;
     max-height: 1200px;
     overflow-y: scroll;
 }
@@ -99,15 +99,13 @@ margin: 1%;
     display: none;
 }
 
-
-/*
 .wrong {
     color: #FF0000 !important;
 }
 
 .right {
     color: #169E04 !important;
-}*/
+}
 
 #answer-yes {
     color: #169E04;
