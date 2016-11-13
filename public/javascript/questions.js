@@ -1,8 +1,10 @@
 var currentLoginUserObj;
 var currentLoginUsername;
+var currentLoginUsernameFull;
 firebase.auth().onAuthStateChanged(function (user) {
 	if (user) {
 		currentLoginUserObj = user;
+		currentLoginUsernameFull = user.uid;
 		getCurrentUsername();
 		addUserToMemberList();
 	}
@@ -11,27 +13,24 @@ firebase.auth().onAuthStateChanged(function (user) {
 function getCurrentUsername() {
 	firebase.database().ref('usernames/' + currentLoginUserObj.uid).once('value').then(function (snapshot) {
 		currentLoginUsername = snapshot.val().username;
+		currentLoginUsernameFull = currentLoginUserObj.uid;
 	});
 }
 
 
+
 function addUserToMemberList() {
-	console.log("called");
-	var userRef = firebase.database().ref("/rooms/members/" + currentLoginUserObj.uid);
-	userRef.on('value', function (snapshot) {
+	var userRef = firebase.database().ref("/rooms/" + roomName + "/members/" + currentLoginUsernameFull);
+	userRef.once('value', function (snapshot) {
+		console.log(snapshot.val());
 		if (!snapshot.val()) {
-			console.log("setting");
-			userRef.set("ask");
+			userRef.set("answer");
 		} else {
 			console.log("not setting");
 		}
 		updateMembersList();
 	});
 }
-
-
-
-
 
 
 
