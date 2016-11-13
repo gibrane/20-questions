@@ -50,7 +50,7 @@ var chatUL = $('#chat-ul');
 
 //Adds data to actual html
 function chatDataAddFunction(snapshot) {
-	$("#chat-ul").append('<li class="mdl-list__item"> <span class="mdl-list__item-primary-content">' + snapshot.sender + ": " + snapshot.message + '</span> </li>');
+	chatUL.append('<li class="mdl-list__item"> <span class="mdl-list__item-primary-content">' + snapshot.sender + ": " + snapshot.message + '</span> </li>');
 }
 
 //Takes data from firebase and call function above
@@ -71,7 +71,6 @@ function writeChatData(message, sender) {
 //Adds data if current user types
 $('#chat-input').keydown(function (event) {
 	if (event.keyCode == 13) {
-		chatUL.append('<li class="mdl-list__item"> <span class="mdl-list__item-primary-content">' + currentLoginUsername + ": " + $("#chat-input").val() + '</span> </li>')
 		writeChatData($("#chat-input").val(), currentLoginUsername);
 		$("#chat-input").val('');
 		chatUL.scrollTop(chatUL.prop("scrollHeight"));
