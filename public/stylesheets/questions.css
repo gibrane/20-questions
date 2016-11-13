@@ -4,7 +4,7 @@ div {
 	background-color: #FFFFFF;
 }
 
-#questions-players {
+#questions-div {
 	float: left;
 	width: 31%;
 	display: inline;
@@ -30,6 +30,11 @@ div {
 	position: fixed;
 	bottom: 50px;
 	right: 0;
+}
+
+#questions-tab,
+#chat-ul {
+	overflow-y: auto;
 }
 
 #ask-input {

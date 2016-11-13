@@ -6,7 +6,6 @@
 		<%= title %>
 	</title>
 	<link rel="stylesheet" href="../stylesheets/normalize.css">
-	<link rel="stylesheet" href="../stylesheets/main.css">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 	<link rel="stylesheet" href="https://code.getmdl.io/1.2.1/material.indigo-pink.min.css">
 	<link href="https://fonts.googleapis.com/css?family=Gloria+Hallelujah|Roboto" rel="stylesheet">
@@ -15,14 +14,12 @@
 </head>
 
 
-
-
 <body>
 	<script>
 		var roomName = "<%= id %>";
 	</script>
 	<div id="chatbox">
-		<ul class="demo-list-item mdl-list">
+		<ul class="demo-list-item mdl-list" id="chat-ul">
 			<li class="mdl-list__item"> <span class="mdl-list__item-primary-content">
       EvanIsPoop420: This is a message
     </span> </li>
@@ -32,13 +29,14 @@
 			</li>
 			<li class="mdl-list__item"> <span class="mdl-list__item-primary-content">
       xXilove20questionsXx: This is a message that is a test
-    </span> </li>
+</span>
+			</li>
 		</ul>
 	</div>
-	<div id="questions-players" class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
-		<div class="mdl-tabs__tab-bar"> <a href="#questions" class="mdl-tabs__tab is-active">Questions</a> <a href="#players" class="mdl-tabs__tab">Players</a> </div>
-		<div class="mdl-tabs__panel is-active" id="questions">
-			<ul id="questions-div" class="demo-list-icon mdl-list">
+	<div id="questions-div" class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
+		<div class="mdl-tabs__tab-bar" id="players-questions-tab"> <a href="#questions-tab" class="mdl-tabs__tab is-active">Questions</a> <a href="#players" class="mdl-tabs__tab">Players</a> </div>
+		<div class="mdl-tabs__panel is-active" id="questions-tab">
+			<ul id="questions-ul" class="demo-list-icon mdl-list">
 				<li class="mdl-list__item"> <span class="mdl-list__item-primary-content">
             Is your person male?
             </span> <i class="material-icons mdl-list__item-icon answer right">done</i> </li>
@@ -58,15 +56,15 @@
 	<div id="ask-chat" class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
 		<div class="mdl-tabs__tab-bar"> <a href="#ask" class="mdl-tabs__tab is-active">Ask</a><a href="#chat" class="mdl-tabs__tab">Chat</a> </div>
 		<div class="mdl-tabs__panel is-active" id="ask">
-			<div class="mdl-textfield mdl-js-textfield" id="ask-input">
+			<div class="mdl-textfield mdl-js-textfield">
 				<input class="mdl-textfield__input" type="text" id="question-input">
 				<label class="mdl-textfield__label" for="question-input">Ask your question here!</label>
 			</div>
 		</div>
 		<div class="mdl-tabs__panel input" id="chat"> Chat:
-			<div class="mdl-textfield mdl-js-textfield" id="chat-input">
-				<input class="mdl-textfield__input" type="text" id="sample1">
-				<label class="mdl-textfield__label" for="sample1">Put your message here!</label>
+			<div class="mdl-textfield mdl-js-textfield">
+				<input class="mdl-textfield__input" type="text" id="chat-input">
+				<label class="mdl-textfield__label" for="chat-input">Put your message here!</label>
 			</div>
 		</div>
 	</div>
