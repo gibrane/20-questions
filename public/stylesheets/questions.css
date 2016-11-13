@@ -1,62 +1,78 @@
 html,
 body,
 div {
-	background-color: #FFFFFF;
+    background-color: #FFFFFF;
 }
 
 #questions-div {
-	float: left;
-	width: 31%;
-	display: inline;
-	margin: 1%;
+    float: left;
+    width: 31%;
+    display: inline;
+    margin: 1%;
 }
 
 #questions,
 #players {
-	width: 100%;
+    width: 100%;
 }
 
 #chatbox {
-	width: 60%;
-	float: right;
-	display: block;
-	margin-left: 5%;
+    width: 60%;
+    float: right;
+    display: block;
+    margin-left: 5%;
 }
 
 #ask-chat {
-	float: right;
-	width: 66%;
-	height: 100px;
-	position: fixed;
-	bottom: 50px;
-	right: 0;
+    float: right;
+    width: 66%;
+    height: 100px;
+    position: fixed;
+    bottom: 50px;
+    right: 0;
 }
 
 #questions-tab,
 #chat-ul {
-	overflow-y: auto;
+    overflow-y: auto;
 }
 
-#ask-input {
-	width: 95%;
-}
-
-#chat-input {
-	width: 90%;
+#question-input,
+#question-label,
+#chat-input,
+#chat-label,
+#chat,
+#ask,
+#fts,
+#ihateyou {
+    width: 100%;
 }
 
 .demo-list-icon {
-	width: 300px;
+    width: 300px;
 }
 
 .answer {
-	float: right;
+    float: right;
 }
 
 .wrong {
-	color: #FF0000 !important;
+    color: #FF0000 !important;
 }
 
 .right {
-	color: #169E04 !important;
+    color: #169E04 !important;
+}
+
+@media (max-width: 700px) {
+    #questions-div,
+    #ask-chat,
+    #chatbox {
+        float: none;
+        display: block;
+        width: 100%;
+    }
+    .asked {
+        width: 100%;
+    }
 }
