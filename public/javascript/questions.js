@@ -85,8 +85,8 @@ function sendQuestionResponse(val) {
 		questionsToAnswer.splice(0, 1);
 		console.log("new questionsToAnswer", questionsToAnswer);
 		if (gameFinished) {
-			writeChatData("Congrats, you got it!", "System");
-			writeChatData("<a href='../../'> Create a new game</a>", "System");
+			writeChatData("Congrats, you guessed it!", "System");
+			writeChatData(" <a href='../../'> Create a new game</a>", "System");
 		} else {
 			showNextQuestion();
 		}
