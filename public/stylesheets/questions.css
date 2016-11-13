@@ -109,27 +109,21 @@ margin: 1%;
     color: #169E04 !important;
 }*/
 
-
-/*
-#yes-button {
-    margin-right: 30%;
+#answer-yes {
     color: #169E04;
-    position: relative;
-    display: inline;
-    margin-top: 20px;
-    float: right;
-}*/
+}
 
-
-/*
-#no-button {
-    margin-left: 30%;
+#answer-no {
     color: #FF0000;
-    position: relative;
+}
+
+#answer-finish {
+    color: #03a9f4;
+}
+
+button {
     display: inline;
-    float: left;
-    margin-top: 20px;
-}*/
+}
 
 
 /*

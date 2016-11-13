@@ -34,7 +34,7 @@
                 <ul class="demo-list-item mdl-list" id="chat-ul"> </ul>
             </div>
             <div id="ask-chat" class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
-                <div class="mdl-tabs__tab-bar"> <a href="#ask" class="mdl-tabs__tab">Ask</a><a href="#answer" class="mdl-tabs__tab">Answer</a><a href="#chat" class="mdl-tabs__tab is-active">Chat</a> </div>
+                <div class="mdl-tabs__tab-bar"> <a href="#ask" class="mdl-tabs__tab" id="ask-tab">Ask</a><a href="#answer" class="mdl-tabs__tab" id="answer-tab">Answer</a><a href="#chat" class="mdl-tabs__tab is-active">Chat</a> </div>
                 <div class="mdl-tabs__panel" id="ask">
                     <div class="mdl-textfield mdl-js-textfield">
                         <input class="mdl-textfield__input" type="text" id="question-input">
@@ -42,10 +42,14 @@
                     </div>
                 </div>
                 <div class="mdl-tabs__panel" id="answer">
-                    <p id="answer-question">Answering: Is it blue?</p>
-                    <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" id="answer-yes">Yes</button>
-                    <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" id="answer-no">No</button>
-                    <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" id="answer-finish">The answer</button>
+                    <h5 id="answer-question" class="headline">Answering: Is it blue?</h5>
+                    <div class="mdl-grid">
+                        <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-cell mdl-cell--3-col mdl-cell--bottom" id="answer-yes">Yes</button>
+                        <div class="mdl-layout-spacer mdl-cell--1-col"></div>
+                        <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect  mdl-cell mdl-cell--3-col mdl-cell--bottom" id="answer-no">No</button>
+                        <div class="mdl-layout-spacer mdl-cell--1-col"></div>
+                        <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect  mdl-cell mdl-cell--3-col mdl-cell--bottom" id="answer-finish">The answer</button>
+                    </div>
                 </div>
                 <div class="mdl-tabs__panel input is-active" id="chat"> Chat:
                     <div class="mdl-textfield mdl-js-textfield" id="fts">
