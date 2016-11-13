@@ -113,12 +113,21 @@ function signIn() {
 
 function checkRoom() {
     var roomName = $('#room-name-input').val();
-    firebase.database().ref('/rooms/' + roomName).once('value').then(function (snapshot) {
-        if (snapshot.val()) {
-            var joinUrl = "https://codeday-20-questions.herokuapp.com/questions/" + roomName;
-            window.location.href = joinUrl;
-        }
-    });
+    if (roomName !== "") {
+        firebase.database().ref('/rooms/' + roomName).once('value').then(function (snapshot) {
+            console.log(1);
+            if (snapshot.val()) {
+                console.log(3);
+                $('#enter-room-div').removeClass("is-invalid");
+                var joinUrl = "https://codeday-20-questions.herokuapp.com/questions/" + roomName;
+                window.location.href = joinUrl;
+            }
+            else {
+                console.log(2);
+                $('#enter-room-div').addClass("is-invalid");
+            }
+        });
+    }
 }
 
 function finishCreateRoom(val) {
