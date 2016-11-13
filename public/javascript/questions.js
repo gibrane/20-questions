@@ -4,6 +4,7 @@ firebase.auth().onAuthStateChanged(function (user) {
 	if (user) {
 		currentLoginUserObj = user;
 		getCurrentUsername();
+		addUserToMemberList();
 	}
 });
 
@@ -14,15 +15,19 @@ function getCurrentUsername() {
 }
 
 
-
-var userRef = firebase.database().ref("/rooms/members/" + currentLoginObj.uid);
-userRef.on('value', function (snapshot) {
-	if (snapshot.val()) {
-		userRef.onDisconnect().remove();
-		userRef.set("true");
-	}
-});
-
+function addUserToMemberList() {
+	console.log("called");
+	var userRef = firebase.database().ref("/rooms/members/" + currentLoginUserObj.uid);
+	userRef.on('value', function (snapshot) {
+		if (!snapshot.val()) {
+			console.log("setting");
+			userRef.set("ask");
+		} else {
+			console.log("not setting");
+		}
+		updateMembersList();
+	});
+}
 
 
 
@@ -48,13 +53,16 @@ function addPlayer(player) {
 	})
 }
 var playersList;
-firebase.database().ref('rooms/' + roomName + "/members").once('value').then(function (snapshot) {
-	playersList = snapshot.val();
-}).then(function () {
-	for (var player in playersList) {
-		addPlayer(player);
-	}
-});
+
+function updateMembersList() {
+	firebase.database().ref('rooms/' + roomName + "/members").once('value').then(function (snapshot) {
+		playersList = snapshot.val();
+	}).then(function () {
+		for (var player in playersList) {
+			addPlayer(player);
+		}
+	});
+}
 
 //All Below edits chat data
 
