@@ -54,9 +54,30 @@ firebase.database().ref('rooms/' + roomName + "/members").once('value').then(fun
 	}
 });
 
+function writeChatData(message, sender) {
+	firebase.database().ref('chats/' + roomName).push({
+		message: message,
+		sender: sender,
+		timestamp: firebase.database.ServerValue.TIMESTAMP
+	});
+}
+
+function chatDataAddFunction(snapshot) {
+	var snapshot = snapshot[Object.keys(snapshot)[0]]; //Done to get object without _proto_
+	$("#chat-ul").append('<li class="mdl-list__item"> <span class="mdl-list__item-primary-content">' + snapshot.sender + ": " + snapshot.message + '</span> </li>');
+}
+
+var chatDataAdder = firebase.database().ref('chats/' + roomName);
+chatDataAdder.on('value', function (snapshot) {
+	chatDataAddFunction(snapshot.val());
+});
+
+
+
 $('#chat-input').keydown(function (event) {
 	if (event.keyCode == 13) {
 		$("#chat-ul").append('<li class="mdl-list__item"> <span class="mdl-list__item-primary-content">' + currentLoginUsername + ": " + $("#chat-input").val() + '</span> </li>')
+		writeChatData($("#chat-input").val(), currentLoginUsername);
 		$("#chat-input").val('');
 		var div = $('#chat-ul');
 		div.scrollTop(div.prop("scrollHeight"));
