@@ -4,11 +4,29 @@ div {
     background-color: #FFFFFF;
 }
 
-#questions-div {
+
+/*#questions-div {
     float: left;
-    width: 31%;
-    display: inline;
-    margin: 1%;
+    /*width: 31%;
+
+display: inline;
+margin: 1%;
+
+}
+*/
+
+#questions-tab {
+    min-height: 200px;
+}
+
+
+/*
+#sidebar-left {
+    min-width: 250px;
+}*/
+
+#questions-ul {
+    width: 100%;
 }
 
 #questions,
@@ -17,26 +35,40 @@ div {
 }
 
 #chatbox {
+    min-height: 600px;
+    max-height: 1200px;
+    overflow-y: scroll;
+}
+
+
+/*
+#chatbox {
     width: 60%;
     float: right;
     display: block;
     margin-left: 5%;
-}
+}*/
 
 #ask-chat {
-    float: right;
-    width: 66%;
+    /*float: right;*/
+    /* width: 66%;*/
     height: 100px;
-    position: fixed;
-    bottom: 50px;
-    right: 0;
+    /*position: fixed;*/
+    /*bottom: 50px;
+    /*right: 0;*/
 }
 
-#questions-tab,
-#chat-ul {
+#questions-tab {
     overflow-y: auto;
 }
 
+#answer-question {
+    margin: 0 auto;
+    text-align: center;
+}
+
+
+/*
 #question-input,
 #question-label,
 #chat-input,
@@ -45,31 +77,40 @@ div {
 #ask,
 #fts,
 #ihateyou,
-#wow,
-#answer {
+#wow,*/
+
+
+/*#answer {
     width: 100%;
-}
+}*/
 
-.demo-list-icon {
+
+/*.demo-list-icon {
     width: 300px;
-}
+}*/
 
+
+/*
 .answer {
     float: right;
-}
+}*/
 
 .hidden {
     display: none;
 }
 
+
+/*
 .wrong {
     color: #FF0000 !important;
 }
 
 .right {
     color: #169E04 !important;
-}
+}*/
 
+
+/*
 #yes-button {
     margin-right: 30%;
     color: #169E04;
@@ -77,8 +118,10 @@ div {
     display: inline;
     margin-top: 20px;
     float: right;
-}
+}*/
 
+
+/*
 #no-button {
     margin-left: 30%;
     color: #FF0000;
@@ -86,8 +129,10 @@ div {
     display: inline;
     float: left;
     margin-top: 20px;
-}
+}*/
 
+
+/*
 @media (max-width: 700px) {
     #questions-div,
     #ask-chat,
@@ -99,4 +144,4 @@ div {
     .asked {
         width: 100%;
     }
-}
+}*/

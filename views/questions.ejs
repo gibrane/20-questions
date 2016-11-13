@@ -17,36 +17,42 @@
     <script>
         var roomName = "<%= id %>";
     </script>
-    <div id="chatbox">
-        <ul class="demo-list-item mdl-list" id="chat-ul"> </ul>
-    </div>
-    <div id="questions-div" class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
-        <div class="mdl-tabs__tab-bar" id="players-questions-tab"> <a href="#questions-tab" class="mdl-tabs__tab is-active">Questions</a> <a href="#players" class="mdl-tabs__tab">Players</a> </div>
-        <div class="mdl-tabs__panel is-active" id="questions-tab">
-            <ul id="questions-ul" class="demo-list-icon mdl-list"> </ul>
-        </div>
-        <div class="mdl-tabs__panel" id="players">
-            <ul class="demo-list-icon mdl-list" id="players-ul"> </ul>
-        </div>
-    </div>
-    <div id="ask-chat" class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
-        <div class="mdl-tabs__tab-bar"> <a href="#ask" class="mdl-tabs__tab">Ask</a><a href="#answer" class="mdl-tabs__tab">Answer</a><a href="#chat" class="mdl-tabs__tab is-active">Chat</a> </div>
-        <div class="mdl-tabs__panel" id="ask">
-            <div class="mdl-textfield mdl-js-textfield" id="ihateyou">
-                <input class="mdl-textfield__input" type="text" id="question-input">
-                <label class="mdl-textfield__label" for="question-input" id="question-label">Ask your question here!</label>
+    <div class="mdl-grid">
+        <div class="mdl-cell mdl-cell--4-col" id="sidebar-left">
+            <div id="questions-div" class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
+                <div class="mdl-tabs__tab-bar" id="players-questions-tab"> <a href="#questions-tab" class="mdl-tabs__tab is-active">Questions</a> <a href="#players" class="mdl-tabs__tab">Players</a> </div>
+                <div class="mdl-tabs__panel is-active" id="questions-tab">
+                    <ul id="questions-ul" class="demo-list-icon mdl-list"> </ul>
+                </div>
+                <div class="mdl-tabs__panel" id="players">
+                    <ul class="demo-list-icon mdl-list" id="players-ul"> </ul>
+                </div>
             </div>
         </div>
-        <div class="mdl-tabs__panel" id="answer">
-            <div class="mdl-textfield mdl-js-textfield" id="wow">
-                <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" id="yes-button"> Yes </button>
-                <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" id=no-button> No </button>
+        <div class="mdl-cell mdl-cell--8-col mdl-cell--bottom" id="sidebar-right">
+            <div id="chatbox">
+                <ul class="demo-list-item mdl-list" id="chat-ul"> </ul>
             </div>
-        </div>
-        <div class="mdl-tabs__panel input is-active" id="chat"> Chat:
-            <div class="mdl-textfield mdl-js-textfield" id="fts">
-                <input class="mdl-textfield__input" type="text" id="chat-input">
-                <label class="mdl-textfield__label" for="chat-input" id="chat-label">Put your message here!</label>
+            <div id="ask-chat" class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
+                <div class="mdl-tabs__tab-bar"> <a href="#ask" class="mdl-tabs__tab">Ask</a><a href="#answer" class="mdl-tabs__tab">Answer</a><a href="#chat" class="mdl-tabs__tab is-active">Chat</a> </div>
+                <div class="mdl-tabs__panel" id="ask">
+                    <div class="mdl-textfield mdl-js-textfield">
+                        <input class="mdl-textfield__input" type="text" id="question-input">
+                        <label class="mdl-textfield__label" for="question-input" id="question-label">Ask your question here!</label>
+                    </div>
+                </div>
+                <div class="mdl-tabs__panel" id="answer">
+                    <p id="answer-question">Answering: Is it blue?</p>
+                    <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" id="answer-yes">Yes</button>
+                    <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" id="answer-no">No</button>
+                    <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" id="answer-finish">The answer</button>
+                </div>
+                <div class="mdl-tabs__panel input is-active" id="chat"> Chat:
+                    <div class="mdl-textfield mdl-js-textfield" id="fts">
+                        <input class="mdl-textfield__input" type="text" id="chat-input">
+                        <label class="mdl-textfield__label" for="chat-input" id="chat-label">Put your message here!</label>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
