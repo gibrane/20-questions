@@ -4,6 +4,7 @@ firebase.auth().onAuthStateChanged(function (user) {
 	if (user) {
 		currentLoginUserObj = user;
 		getCurrentUsername();
+		addUserToMemberList();
 	}
 });
 
@@ -12,6 +13,29 @@ function getCurrentUsername() {
 		currentLoginUsername = snapshot.val().username;
 	});
 }
+
+
+function addUserToMemberList() {
+	console.log("called");
+	var userRef = firebase.database().ref("/rooms/members/" + currentLoginUserObj.uid);
+	userRef.on('value', function (snapshot) {
+		if (!snapshot.val()) {
+			console.log("setting");
+			userRef.set("ask");
+		} else {
+			console.log("not setting");
+		}
+		updateMembersList();
+	});
+}
+
+
+
+
+
+
+
+
 //Get window height for scrolling of chat box
 var windowHeight = $(window).height();
 $('#chat-ul').css("max-height", windowHeight - 175);
@@ -29,13 +53,16 @@ function addPlayer(player) {
 	})
 }
 var playersList;
-firebase.database().ref('rooms/' + roomName + "/members").once('value').then(function (snapshot) {
-	playersList = snapshot.val();
-}).then(function () {
-	for (var player in playersList) {
-		addPlayer(player);
-	}
-});
+
+function updateMembersList() {
+	firebase.database().ref('rooms/' + roomName + "/members").once('value').then(function (snapshot) {
+		playersList = snapshot.val();
+	}).then(function () {
+		for (var player in playersList) {
+			addPlayer(player);
+		}
+	});
+}
 
 //All Below edits chat data
 
@@ -92,7 +119,7 @@ questionDataAdder.on('child_added', function (snapshot) {
 });
 
 //Function called to write question data to firebase
-function writeQuestionData(message, sender) {
+function writeQuestionData(question, sender, status) {
 	firebase.database().ref('questions/' + roomName).push({
 		question: question,
 		sender: sender,
@@ -101,10 +128,10 @@ function writeQuestionData(message, sender) {
 	});
 }
 //Adds data if current user types
-questionUL.keydown(function (event) {
+$("#question-input").keydown(function (event) {
 	if (event.keyCode == 13) {
 		if ($("#question-input").val() != "") {
-			writeQuestionData($("#question-input").val(), currentLoginUsername);
+			writeQuestionData($("#question-input").val(), currentLoginUsername, 'help');
 			$("#question-input").val('');
 			$('#questions-tab').scrollTop($('#questions-tab').prop("scrollHeight"));
 		}
