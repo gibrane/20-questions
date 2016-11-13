@@ -1,7 +1,7 @@
 html,
 body,
 div {
-    background-color: #FFFFFF;
+	background-color: #FFFFFF;
 }
 
 
@@ -16,7 +16,7 @@ margin: 1%;
 */
 
 #questions-tab {
-    min-height: 200px;
+	min-height: 200px;
 }
 
 
@@ -26,18 +26,18 @@ margin: 1%;
 }*/
 
 #questions-ul {
-    width: 100%;
+	width: 100%;
 }
 
 #questions,
 #players {
-    width: 100%;
+	width: 100%;
 }
 
 #chatbox {
-    min-height: 500px;
-    max-height: 1200px;
-    overflow-y: scroll;
+	min-height: 450px;
+	max-height: 1200px;
+	overflow-y: scroll;
 }
 
 
@@ -50,21 +50,21 @@ margin: 1%;
 }*/
 
 #ask-chat {
-    /*float: right;*/
-    /* width: 66%;*/
-    height: 100px;
-    /*position: fixed;*/
-    /*bottom: 50px;
+	/*float: right;*/
+	/* width: 66%;*/
+	height: 100px;
+	/*position: fixed;*/
+	/*bottom: 50px;
     /*right: 0;*/
 }
 
 #questions-tab {
-    overflow-y: auto;
+	overflow-y: auto;
 }
 
 #answer-question {
-    margin: 0 auto;
-    text-align: center;
+	margin: 0 auto;
+	text-align: center;
 }
 
 
@@ -96,35 +96,35 @@ margin: 1%;
 }*/
 
 .hidden {
-    display: none;
+	display: none;
 }
 
 .wrong {
-    color: #FF0000 !important;
+	color: #FF0000 !important;
 }
 
 .right {
-    color: #169E04 !important;
+	color: #169E04 !important;
 }
 
 #answer-yes {
-    color: #169E04;
+	color: #169E04;
 }
 
 #answer-no {
-    color: #FF0000;
+	color: #FF0000;
 }
 
 #answer-finish {
-    color: #03a9f4;
+	color: #03a9f4;
 }
 
 #answer-question {
-    margin-top: 5px;
+	margin-top: 5px;
 }
 
 button {
-    display: inline;
+	display: inline;
 }
 
 
