@@ -1,3 +1,13 @@
+//from http://stackoverflow.com/a/31144924/5434744
+function requireHTTPS(req, res, next) {
+    //
+    // The 'x-forwarded-proto' check is for Heroku
+    //
+    if (!req.secure && req.get('x-forwarded-proto') !== 'https' && process.env.NODE_ENV !== "development") {
+        return res.redirect('https://' + req.get('host') + req.url);
+    }
+    next();
+};
 var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');
@@ -24,6 +34,7 @@ app.use(bodyParser.urlencoded({
 console.log("working");
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(requireHTTPS);
 app.use('/', index);
 app.use('/questions', questions);
 //app.use('/fbtest', fbTest);
