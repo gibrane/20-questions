@@ -6,7 +6,6 @@ firebase.auth().onAuthStateChanged(function (user) {
 		currentLoginUserObj = user;
 		currentLoginUsernameFull = user.uid;
 		getCurrentUsername();
-		addUserToMemberList();
 	}
 });
 
@@ -14,6 +13,7 @@ function getCurrentUsername() {
 	firebase.database().ref('usernames/' + currentLoginUserObj.uid).once('value').then(function (snapshot) {
 		currentLoginUsername = snapshot.val().username;
 		currentLoginUsernameFull = currentLoginUserObj.uid;
+		addUserToMemberList();
 	});
 }
 
@@ -31,18 +31,17 @@ $('#questions-tab').css("max-height", windowHeight - 80);
 
 
 function addUserToMemberList() {
-	var userRef = firebase.database().ref("/rooms/" + roomName + "/members/" + currentLoginUsernameFull);
+	var userRef = firebase.database().ref("/rooms/" + roomName + "/members/" + currentLoginUsername);
 	userRef.once('value', function (snapshot) {
 		console.log(snapshot.val());
 		if (!snapshot.val()) {
-			userRef.set("answer");
-		} else {
 			userRef.set("ask");
 		}
-		updateMembersList();
+		//updateMembersList();
 	});
 }
 
+/*
 function updateMembersList() {
 	firebase.database().ref('rooms/' + roomName + "/members").once('value').then(function (snapshot) {
 		playersList = snapshot.val();
@@ -52,26 +51,33 @@ function updateMembersList() {
 		}
 	});
 }
-
-
-
-
-/*
-//Adds data to actual html
-function chatDataAddFunction(snapshot) {
-	chatUL.append('<li class="mdl-list__item"> <span class="mdl-list__item-primary-content">' + snapshot.sender + ": " + snapshot.message + '</span> </li>');
-}
-
-
-var playerAdder = firebase.database().ref("/rooms/" + roomName + "/members");
-questionDataAdder.on('child_added', function (snapshot) {
-	questionDataAddFunction(snapshot.val());
-	$('#questions-tab').scrollTop($('#questions-tab').prop("scrollHeight"));
-});
 */
 
 
 
+
+//Adds data to actual html
+function playerDataAddFunction(snapshot) {
+	if (snapshot.val() == "ask") {
+		console.log("You are in ask");
+		$("#players-ul").append('<li class="mdl-list__item"> <span class="mdl-list__item-primary-content"> <i class="material-icons mdl-list__item-icon">person</i>' + snapshot.key + '</span> </li>');
+	} else if (snapshot.val() == "answer") {
+		console.log("You are in answer");
+		$("#players-ul").prepend('<li class="mdl-list__item"> <span class="mdl-list__item-primary-content"> <i class="material-icons mdl-list__item-icon">star rate</i>' + snapshot.key + '</span> </li>');
+	}
+}
+
+
+var playerDataAdder = firebase.database().ref("/rooms/" + roomName + "/members");
+playerDataAdder.on('child_added', function (snapshot) {
+	playerDataAddFunction(snapshot);
+	//$('#questions-tab').scrollTop($('#questions-tab').prop("scrollHeight"));
+});
+
+
+
+/*
+var playersList;
 function addPlayer(player) {
 	firebase.database().ref('usernames/' + player).once('value').then(function (snapshot) {
 		var username = snapshot.val().username;
@@ -82,7 +88,7 @@ function addPlayer(player) {
 		}
 	})
 }
-var playersList;
+*/
 
 
 
