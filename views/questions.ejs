@@ -15,6 +15,13 @@
 </head>
 
 <body>
+    <div id="chatbox">
+        <ul class="mdl-list__item">
+            <li class="mdl-list__item message"> <span class="mdl-list__item-primary-content">test</span></li>
+            <li class="mdl-list__item message"> <span class="mdl-list__item-primary-content">afsdgsdfg</span></li>
+            <li class="mdl-list__item message"> <span class="mdl-list__item-primary-content">gseryt</span></li>
+        </ul>
+    </div>
     <div id="questions-players" class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
         <div class="mdl-tabs__tab-bar"> <a href="#questions" class="mdl-tabs__tab is-active">Questions</a> <a href="#players" class="mdl-tabs__tab">Players</a> </div>
         <div class="mdl-tabs__panel is-active" id="questions">
@@ -47,20 +54,16 @@
             </ul>
         </div>
     </div>
-    <h1><%= title %></h1>
-    <p>Welcome to
-        <%= title %>
-    </p>
     <div id="ask-chat" class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
         <div class="mdl-tabs__tab-bar"> <a href="#ask" class="mdl-tabs__tab is-active">Ask</a><a href="#chat" class="mdl-tabs__tab">Chat</a> </div>
         <div class="mdl-tabs__panel is-active" id="ask">
-            <div class="mdl-textfield mdl-js-textfield input" id="ask-input">
+            <div class="mdl-textfield mdl-js-textfield" id="ask-input">
                 <input class="mdl-textfield__input" type="text" id="sample1">
                 <label class="mdl-textfield__label" for="sample1">Ask your question here!</label>
             </div>
         </div>
         <div class="mdl-tabs__panel input" id="chat"> Chat:
-            <div class="mdl-textfield mdl-js-textfield input" id="chat-input">
+            <div class="mdl-textfield mdl-js-textfield" id="chat-input">
                 <input class="mdl-textfield__input" type="text" id="sample1">
                 <label class="mdl-textfield__label" for="sample1">Put your message here!</label>
             </div>

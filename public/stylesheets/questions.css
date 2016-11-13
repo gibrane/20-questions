@@ -6,17 +6,37 @@ div {
 
 #questions-players {
     float: left;
-    width: 33%;
+    width: 31%;
+    display: inline;
+    margin: 1%;
+}
+
+#questions,
+#players {
+    width: 100%;
+}
+
+.message {
+    display: block;
+}
+
+#chatbox {
+    width: 66%;
+    float: right;
+    display: block;
 }
 
 #ask-chat {
     float: right;
     width: 66%;
     height: 100px;
+    position: fixed;
+    bottom: 50px;
+    right: 0;
 }
 
 #ask-input {
-    width: 100%;
+    width: 95%;
 }
 
 #chat-input {
