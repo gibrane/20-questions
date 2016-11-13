@@ -6,6 +6,7 @@ firebase.auth().onAuthStateChanged(function (user) {
 		currentLoginUserObj = user;
 		currentLoginUsernameFull = user.uid;
 		getCurrentUsername();
+
 	}
 });
 
@@ -33,12 +34,15 @@ $('#questions-tab').css("max-height", windowHeight - 80);
 function addUserToMemberList() {
 	var userRef = firebase.database().ref("/rooms/" + roomName + "/members/" + currentLoginUsername);
 	userRef.once('value', function (snapshot) {
-		console.log(snapshot.val());
-		if (!snapshot.val()) {
-			userRef.set("ask");
-		}
+			console.log(snapshot.val());
+			if (snapshot.val() == "answer") {
+				$("#ask-tab").addClass("hidden");
+			} else if (!snapshot.val() || snapshot.val() == "ask") {
+				userRef.set("ask");
+				$("#answer-tab").addClass("hidden");
+			}
+		})
 		//updateMembersList();
-	});
 }
 
 /*
