@@ -2,72 +2,73 @@
 <html>
 
 <head>
-    <title>
-        <%= title %>
-    </title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="stylesheets/normalize.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link rel="stylesheet" href="https://code.getmdl.io/1.2.1/material.indigo-pink.min.css">
-    <script defer src="https://code.getmdl.io/1.2.1/material.min.js"></script>
-    <link href="https://fonts.googleapis.com/css?family=Gloria+Hallelujah|Roboto" rel="stylesheet">
-    <link rel="stylesheet" href="stylesheets/main.css"> </head>
+	<title>
+		<%= title %>
+	</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="stylesheets/normalize.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	<link rel="stylesheet" href="https://code.getmdl.io/1.2.1/material.indigo-pink.min.css">
+	<script defer src="https://code.getmdl.io/1.2.1/material.min.js"></script>
+	<link href="https://fonts.googleapis.com/css?family=Gloria+Hallelujah|Roboto" rel="stylesheet">
+	<link rel="stylesheet" href="stylesheets/main.css"> </head>
 
 <body>
-    <h1 id="heading"><%= title %></h1>
-    <p id="heading-intro">Welcome to
-        <%= title %>
-    </p>
-    <!-- Choose to join or create room -->
-    <div class="content-grid mdl-grid hidden" id="main-buttons-div">
-        <div class="mdl-cell mdl-cell--6-col mdl-cell--4-col-tablet mdl-cell--4-col-phone" id="create-room-div">
-            <button id="create-room-button" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">Create a Room</button>
-        </div>
-        <div class="mdl-cell mdl-cell--6-col mdl-cell--4-col-tablet mdl-cell--4-col-phone" id='join-room-div'>
-            <button id="join-room-button" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">Join a Room</button>
-        </div>
-    </div>
-    <!-- Spinner Loader -->
-    <div id="spinner-div">
-        <div class="mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active" id="spinner"></div>
-    </div>
-    <!-- Log In Button -->
-    <div class="content-grid mdl-grid hidden" id="main-signin-div">
-        <div class="mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet mdl-cell--4-col-phone" id="signin-div">
-            <button id="signin-button" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" onclick="signIn()">Log In</button>
-        </div>
-    </div>
-    <!-- Enter username if user does not have one -->
-    <div id="main-save-username-div" class="hidden">
-        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" id="save-username-div">
-            <input class="mdl-textfield__input" type="text" id="username-input">
-            <label class="mdl-textfield__label" for="username-input" id="username-input-text">Please pick a username</label>
-        </div>
-        <button onclick="saveUsername()" id="save-username-button" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">Submit</button>
-    </div>
-    <!-- Enter room name to join -->
-    <div id="enter-room-name-div" class="hidden">
-        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" id="enter-room-div">
-            <input class="mdl-textfield__input" type="text" id="room-name-input">
-            <label class="mdl-textfield__label" for="room-name-input">Enter the room code to join:</label> <span class="mdl-textfield__error">That room doesn't exist</span> </div>
-        <br />
-        <button onclick="checkRoom()" id="check-room-button" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">Go</button>
-    </div>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/3.6.0/firebase.js"></script>
-    <script>
-        // Initialize Firebase
-        var config = {
-            apiKey: "AIzaSyBtUSHUtx1KZcq7GOjGsDuQOBl8LM6aeow"
-            , authDomain: "questions-codeday.firebaseapp.com"
-            , databaseURL: "https://questions-codeday.firebaseio.com"
-            , storageBucket: "questions-codeday.appspot.com"
-            , messagingSenderId: "576910719703"
-        };
-        firebase.initializeApp(config);
-    </script>
-    <script src="javascript/plugins.js"></script>
-    <script src="javascript/index.js"></script>
+	<h1 id="heading"><%= title %></h1>
+	<p id="heading-intro">Welcome to
+		<%= title %>
+	</p>
+	<!-- Choose to join or create room -->
+	<div class="content-grid mdl-grid hidden" id="main-buttons-div">
+		<div class="mdl-cell mdl-cell--6-col mdl-cell--4-col-tablet mdl-cell--4-col-phone" id="create-room-div">
+			<button id="create-room-button" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">Create a Room</button>
+		</div>
+		<div class="mdl-cell mdl-cell--6-col mdl-cell--4-col-tablet mdl-cell--4-col-phone" id='join-room-div'>
+			<button id="join-room-button" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">Join a Room</button>
+		</div>
+	</div>
+	<!-- Spinner Loader -->
+	<div id="spinner-div">
+		<div class="mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active" id="spinner"></div>
+	</div>
+	<!-- Log In Button -->
+	<div class="content-grid mdl-grid hidden" id="main-signin-div">
+		<div class="mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet mdl-cell--4-col-phone" id="signin-div">
+			<button id="signin-button" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" onclick="signIn()">Log In</button>
+		</div>
+	</div>
+	<!-- Enter username if user does not have one -->
+	<div id="main-save-username-div" class="hidden">
+		<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" id="save-username-div">
+			<input class="mdl-textfield__input" type="text" id="username-input">
+			<label class="mdl-textfield__label" for="username-input" id="username-input-text">Please pick a username</label>
+		</div>
+		<button onclick="saveUsername()" id="save-username-button" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">Submit</button>
+	</div>
+	<!-- Enter room name to join -->
+	<div id="enter-room-name-div" class="hidden">
+		<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" id="enter-room-div">
+			<input class="mdl-textfield__input" type="text" id="room-name-input">
+			<label class="mdl-textfield__label" for="room-name-input">Enter the room code to join:</label> <span class="mdl-textfield__error">That room doesn't exist</span> </div>
+		<br />
+		<button onclick="checkRoom()" id="check-room-button" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">Go</button>
+		<button onclick="backToMain()" id="back-button" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">Back</button>
+	</div>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/3.6.0/firebase.js"></script>
+	<script>
+		// Initialize Firebase
+		var config = {
+			apiKey: "AIzaSyBtUSHUtx1KZcq7GOjGsDuQOBl8LM6aeow",
+			authDomain: "questions-codeday.firebaseapp.com",
+			databaseURL: "https://questions-codeday.firebaseio.com",
+			storageBucket: "questions-codeday.appspot.com",
+			messagingSenderId: "576910719703"
+		};
+		firebase.initializeApp(config);
+	</script>
+	<script src="javascript/plugins.js"></script>
+	<script src="javascript/index.js"></script>
 </body>
 
 </html>

@@ -55,6 +55,11 @@ function askForRoom() {
 	$('#enter-room-name-div').removeClass("hidden");
 }
 
+function backToMain() {
+	$('#main-buttons-div').removeClass("hidden");
+	$('#enter-room-name-div').addClass("hidden");
+}
+
 function reqUsername() {
 	$('#main-save-username-div').removeClass("hidden");
 	$('#main-signin-div').addClass("hidden");
