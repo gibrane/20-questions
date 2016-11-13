@@ -111,7 +111,15 @@ function signIn() {
     });
 }
 
-function checkRoom() {}
+function checkRoom() {
+    var roomName = $('#room-name-input').val();
+    firebase.database().ref('/rooms/' + roomName).once('value').then(function (snapshot) {
+        if (snapshot.val()) {
+            var joinUrl = "https://codeday-20-questions.herokuapp.com/questions/" + roomName;
+            window.location.href = joinUrl;
+        }
+    });
+}
 
 function finishCreateRoom(val) {
     console.log(val);
