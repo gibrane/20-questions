@@ -1,5 +1,5 @@
 # 20 Cubed: An online, multiplayer 20 questions game
-![dependencies badge](https://david-dm.org/gib98/20-questions.svg)
+![dependencies badge](https://david-dm.org/gib98/20-questions.svg) [![Known Vulnerabilities](https://snyk.io/test/github/gib98/20-questions/4bd16ce45e7fe59aaecc72fb6c58f12c0a70da0a/badge.svg)](https://snyk.io/test/github/gib98/20-questions/4bd16ce45e7fe59aaecc72fb6c58f12c0a70da0a)
 
 Includes:
 - Chat
