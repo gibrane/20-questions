@@ -2,82 +2,85 @@
 <html>
 
 <head>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>
-		<%= title %>
-	</title>
-	<link rel="stylesheet" href="../stylesheets/normalize.css">
-	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-	<link rel="stylesheet" href="https://code.getmdl.io/1.2.1/material.indigo-pink.min.css">
-	<link href="https://fonts.googleapis.com/css?family=Gloria+Hallelujah|Roboto" rel="stylesheet">
-	<link rel="stylesheet" href="../stylesheets/questions.css">
-	<script defer src="https://code.getmdl.io/1.2.1/material.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+        <%= title %>
+    </title>
+    <link rel="stylesheet" href="../stylesheets/normalize.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.2.1/material.indigo-pink.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Gloria+Hallelujah|Roboto" rel="stylesheet">
+    <link rel="stylesheet" href="../stylesheets/questions.css">
+    <script defer src="https://code.getmdl.io/1.2.1/material.min.js"></script>
 </head>
 
 <body>
-	<script>
-		var roomName = "<%= id %>";
-	</script>
-	<div class="mdl-grid" id="main-body-div">
-		<div class="mdl-cell mdl-cell--4-col" id="sidebar-left">
-			<div id="questions-div" class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
-				<div class="mdl-tabs__tab-bar" id="players-questions-tab"> <a href="#questions-tab" class="mdl-tabs__tab is-active">Questions</a> <a href="#players" class="mdl-tabs__tab">Players</a> </div>
-				<div class="mdl-tabs__panel is-active" id="questions-tab">
-					<ul id="questions-ul" class="demo-list-icon mdl-list"> </ul>
-				</div>
-				<div class="mdl-tabs__panel" id="players">
-					<ul class="demo-list-icon mdl-list" id="players-ul"> </ul>
-				</div>
-			</div>
-		</div>
-		<div class="mdl-cell mdl-cell--8-col mdl-cell--bottom" id="sidebar-right">
-			<div id="chatbox">
-				<ul class="demo-list-item mdl-list" id="chat-ul">
-					<li class="mdl-list__item"> <span class="mdl-list__item-primary-content">System: Welcome to 20 questions! Your friends can join the room with code: <%= id %></span> </li>
-				</ul>
-			</div>
-			<div id="ask-chat" class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
-				<div class="mdl-tabs__tab-bar"> <a href="#ask" class="mdl-tabs__tab" id="ask-tab">Ask</a><a href="#answer" class="mdl-tabs__tab" id="answer-tab">Answer</a><a href="#chat" class="mdl-tabs__tab is-active">Chat</a> </div>
-				<div class="mdl-tabs__panel" id="ask">
-					<div class="mdl-textfield mdl-js-textfield">
-						<input class="mdl-textfield__input" type="text" id="question-input">
-						<label class="mdl-textfield__label" for="question-input" id="question-label">Ask your question here!</label>
-					</div>
-				</div>
-				<div class="mdl-tabs__panel" id="answer">
-					<h5 class="answer-question headline">No questions right now</h5>
-					<div class="mdl-grid hidden" id="answer-choices">
-						<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-cell mdl-cell--3-col mdl-cell--bottom" id="answer-yes" onclick="sendQuestionResponse(0)">Yes</button>
-						<div class="mdl-layout-spacer mdl-cell--1-col"></div>
-						<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect  mdl-cell mdl-cell--3-col mdl-cell--bottom" id="answer-no" onclick="sendQuestionResponse(1)">No</button>
-						<div class="mdl-layout-spacer mdl-cell--1-col"></div>
-						<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect  mdl-cell mdl-cell--3-col mdl-cell--bottom" id="answer-finish" onclick="sendQuestionResponse(2)">Correct</button>
-					</div>
-				</div>
-				<div class="mdl-tabs__panel input is-active" id="chat"> Chat:
-					<div class="mdl-textfield mdl-js-textfield" id="fts">
-						<input class="mdl-textfield__input" type="text" id="chat-input">
-						<label class="mdl-textfield__label" for="chat-input" id="chat-label">Put your message here!</label>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-	<script src="https://www.gstatic.com/firebasejs/3.6.0/firebase.js"></script>
-	<script>
-		// Initialize Firebase
-		var config = {
-			apiKey: "AIzaSyBtUSHUtx1KZcq7GOjGsDuQOBl8LM6aeow",
-			authDomain: "questions-codeday.firebaseapp.com",
-			databaseURL: "https://questions-codeday.firebaseio.com",
-			storageBucket: "questions-codeday.appspot.com",
-			messagingSenderId: "576910719703"
-		};
-		firebase.initializeApp(config);
-	</script>
-	<script src="../javascript/plugins.js"></script>
-	<script src="../javascript/questions.js"></script>
+    <script>
+        var roomName = "<%= id %>";
+    </script>
+    <div class="mdl-grid" id="main-body-div">
+        <div class="mdl-cell mdl-cell--4-col" id="sidebar-left">
+            <div id="questions-div" class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
+                <div class="mdl-tabs__tab-bar" id="players-questions-tab"> <a href="#questions-tab" class="mdl-tabs__tab is-active">Questions</a> <a href="#players" class="mdl-tabs__tab">Players</a> </div>
+                <div class="mdl-tabs__panel is-active" id="questions-tab">
+                    <ul id="questions-ul" class="demo-list-icon mdl-list"> </ul>
+                </div>
+                <div class="mdl-tabs__panel" id="players">
+                    <ul class="demo-list-icon mdl-list" id="players-ul"> </ul>
+                </div>
+            </div>
+        </div>
+        <div class="mdl-cell mdl-cell--8-col mdl-cell--bottom" id="sidebar-right">
+            <div id="chatbox">
+                <ul class="demo-list-item mdl-list" id="chat-ul">
+                    <li class="mdl-list__item"> <span class="mdl-list__item-primary-content">System: Welcome to 20 questions! Your friends can join the room with code: <%= id %></span> </li>
+                    <li class="mdl-list__item hidden" id="request-sign-in"> <span class="mdl-list__item-primary-content">Log in again to finish joining this room:</span>
+                        <button onclick="signIn()" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">Log in</button>
+                    </li>
+                </ul>
+            </div>
+            <div id="ask-chat" class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
+                <div class="mdl-tabs__tab-bar"> <a href="#ask" class="mdl-tabs__tab" id="ask-tab">Ask</a><a href="#answer" class="mdl-tabs__tab" id="answer-tab">Answer</a><a href="#chat" class="mdl-tabs__tab is-active">Chat</a> </div>
+                <div class="mdl-tabs__panel" id="ask">
+                    <div class="mdl-textfield mdl-js-textfield">
+                        <input class="mdl-textfield__input" type="text" id="question-input">
+                        <label class="mdl-textfield__label" for="question-input" id="question-label">Ask your question here!</label>
+                    </div>
+                </div>
+                <div class="mdl-tabs__panel" id="answer">
+                    <h5 class="answer-question headline">No questions right now</h5>
+                    <div class="mdl-grid hidden" id="answer-choices">
+                        <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-cell mdl-cell--3-col mdl-cell--bottom" id="answer-yes" onclick="sendQuestionResponse(0)">Yes</button>
+                        <div class="mdl-layout-spacer mdl-cell--1-col"></div>
+                        <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect  mdl-cell mdl-cell--3-col mdl-cell--bottom" id="answer-no" onclick="sendQuestionResponse(1)">No</button>
+                        <div class="mdl-layout-spacer mdl-cell--1-col"></div>
+                        <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect  mdl-cell mdl-cell--3-col mdl-cell--bottom" id="answer-finish" onclick="sendQuestionResponse(2)">Correct</button>
+                    </div>
+                </div>
+                <div class="mdl-tabs__panel input is-active" id="chat"> Chat:
+                    <div class="mdl-textfield mdl-js-textfield" id="fts">
+                        <input class="mdl-textfield__input" type="text" id="chat-input">
+                        <label class="mdl-textfield__label" for="chat-input" id="chat-label">Put your message here!</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.6.0/firebase.js"></script>
+    <script>
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyBtUSHUtx1KZcq7GOjGsDuQOBl8LM6aeow"
+            , authDomain: "questions-codeday.firebaseapp.com"
+            , databaseURL: "https://questions-codeday.firebaseio.com"
+            , storageBucket: "questions-codeday.appspot.com"
+            , messagingSenderId: "576910719703"
+        };
+        firebase.initializeApp(config);
+    </script>
+    <script src="../javascript/plugins.js"></script>
+    <script src="../javascript/questions.js"></script>
 </body>
 
 </html>

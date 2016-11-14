@@ -6,12 +6,18 @@ firebase.auth().onAuthStateChanged(function (user) {
     if (user) {
         currentLoginUserObj = user;
         currentLoginUsernameFull = user.uid;
+        $('#request-sign-in').addClass("hidden");
         getCurrentUsername();
     }
     else {
-        signIn();
+        requestSignIn();
     }
 });
+$('#request-sign-in').removeClass('hidden');
+
+function requestSignIn() {
+    $('#request-sign-in').removeClass('hidden');
+}
 
 function signIn() {
     var provider = new firebase.auth.GoogleAuthProvider();
