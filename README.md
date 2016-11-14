@@ -1,4 +1,5 @@
 # 20 Cubed: An online, multiplayer 20 questions game
+![dependencies badge](https://david-dm.org/gib98/20-questions.svg)
 
 Includes:
 - Chat
